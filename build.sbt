@@ -2,8 +2,15 @@ lazy val sharedSettings = Seq(
   organization := "io.travisbrown",
   scalaVersion := "2.11.6",
   crossScalaVersions := Seq("2.10.5", "2.11.6"),
+  resolvers ++= Seq(
+    Resolver.sonatypeRepo("releases"),
+    Resolver.sonatypeRepo("snapshots")
+  ),
   libraryDependencies ++= Seq(
-    "com.chuusai" %% "shapeless" % "2.2.3",
+    "com.chuusai" %% "shapeless" % "2.2.4-SNAPSHOT",
+    "org.scala-lang" % "scala-compiler" % scalaVersion.value,
+    "org.scalacheck" %% "scalacheck" % "1.12.4" % "test",
+    "org.scalatest" %% "scalatest" % "2.2.5" % "test",
     "org.scalaz" %% "scalaz-core" % "7.1.1"
   )
 )
